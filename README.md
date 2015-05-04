@@ -14,4 +14,4 @@ A special mode, ghostMode, allows for a shadow of the letter tab to be displayed
 A bug that still exists is if the user drags to fill but releases the mouse on top of an object, the drag-to-fill function breaks.
 I am not sure how to fix this bug.
 
-TypeSketch is my first javascript project.  Please enjoy!
+TypeSketch is my first javascript project.  Please enjoy!  Check it out here: http://vverovvero.github.io/Typesketch/
