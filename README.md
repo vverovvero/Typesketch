@@ -2,8 +2,11 @@
 TypeSketch is a simple program for typography design.
 
 There are three main modes:
+
 -GridMode allows for creation of straight lines.
+
 -SketchMode allows for creation of curves.
+
 -FinetuneMode is not implemented, but it would allow for adjustment of outlines of previously created shapes.
 
 A special mode, ghostMode, allows for a shadow of the letter tab to be displayed.
