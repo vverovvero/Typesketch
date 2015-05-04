@@ -1,0 +1,25 @@
+List of bugs: (mention these in write-up)
+-only works in google Chrome
+-BUG: if releasing drag-to-fill on a diagonal line, drag-to-fill will keep filling even 
+when mouse is up
+
+
+IMPLEMENT:
++single-click fill
++drag-to-fill
++double-click line creation
++make diagonal lines appear in correct locations
++add center and base line
++letter template layers
++add working buttons
++ghost mode
++add indications if button doesn’t work
++add primitive curves, sketch mode
++add primitive ellipse/circle generation in sketch mode; highlighting
++add ellipse error feedback
++prevent ellipse and curve clashing with variables!//not perfect, but it’s better
++eraser function, select and erase diagonals and curves
++instruction panel
+
+-export as svg 
+-add a new mode for ellipse creation (?)

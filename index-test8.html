@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Paper Test</title>
+	<style>
+	.unit {
+		width:10;
+		height:10;
+		fill:rgb(255,255,255);
+		stroke-width: 1;
+		stroke:rgb(223, 223, 223);
+	}
+
+  .noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  #toolbar{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #gridmode {
+   display: inline;
+  }
+
+  #sketchmode {
+   display: inline;
+  }
+
+  #refinemode {
+   display: inline;
+  }
+
+  #title {
+    display: inline;
+  }
+
+  #pencil {
+   display: inline;
+  }
+
+  #eraser{
+   display: inline;
+  }
+
+  #ghostmode {
+   display: inline;
+  }
+
+  body { 
+    font-size: 80%; 
+    font-family: Verdana;
+  }
+  
+  ul#tabs { 
+    list-style-type: none; 
+    /*margin: 10px 0 0 0; */
+    margin-top: 560px;
+    padding: 0 0 0.3em 0; 
+    text-align: center;
+  }
+
+  ul#tabs li { 
+    display: inline; 
+  }
+
+  ul#tabs li a { 
+    color: 'rgb(0, 0, 0)'; 
+    background-color: 'rgb(255, 255, 255)'; 
+/*    border: 1px solid #c9c3ba; */
+    border-bottom: none; 
+    padding: 0.3em; 
+    text-decoration: none; 
+  }
+
+  ul#tabs li a:link { 
+    color:inherit;
+    text-decoration: none;
+  }
+
+  ul#tabs li a:visited { 
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul#tabs li a:hover { 
+    background-color: #f1f0ee; 
+  }
+
+  ul#tabs li a:active { 
+    text-decoration: none;
+  }
+
+  ul#tabs li a.selected { 
+    color: #000; 
+    background-color: #f1f0ee; 
+    font-weight: bold; 
+    padding: 0.7em 0.3em 0.38em 0.3em; 
+  }
+
+
+  div.tab{
+    opacity: 0.8;
+    z-index: 1;
+    position: absolute;
+  }
+
+  div.tab.hide { 
+    display: none;
+    z-index: 0; 
+  }
+
+
+  div.tab.ghost { 
+    opacity: 0.5;
+    z-index: -1;
+    position: absolute;
+  }
+
+  /* /////////http://cssarrowplease.com/////////// */
+
+  .caption_title{
+    text-align: center;
+  }
+
+  .arrow_box1 {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #a6abad;
+
+    height: 150px;
+    width:200px;
+    font-size: 50%; 
+    font-family: Verdana;
+    color: gray;
+    padding: 3px 3px 3px 3px; 
+    background-color: white;
+    /*border: 1px solid gray;*/
+
+    z-index: 2;
+
+  }
+  .arrow_box1:after, .arrow_box1:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .arrow_box1:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 20px;
+    margin-left: -20px;
+  }
+  .arrow_box1:before {
+    border-color: rgba(166, 171, 173, 0);
+    border-bottom-color: #a6abad;
+    border-width: 21px;
+    margin-left: -21px;
+  }
+
+  .arrow_box2 {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #a6abad;
+
+    height: 200px;
+    width:200px;
+    font-size: 50%; 
+    font-family: Verdana;
+    color: gray;
+    padding: 3px 3px 3px 3px; 
+    background-color: white;
+    /*border: 1px solid gray;*/
+
+    z-index: 2;
+
+  }
+  .arrow_box2:after, .arrow_box2:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .arrow_box2:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 20px;
+    margin-left: -20px;
+  }
+  .arrow_box2:before {
+    border-color: rgba(166, 171, 173, 0);
+    border-bottom-color: #a6abad;
+    border-width: 21px;
+    margin-left: -21px;
+  }
+
+  .arrow_box3 {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #a6abad;
+
+    height: 50px;
+    width:200px;
+    font-size: 50%; 
+    font-family: Verdana;
+    color: gray;
+    padding: 3px 3px 3px 3px; 
+    background-color: white;
+    /*border: 1px solid gray;*/
+
+    z-index: 2;
+
+  }
+  .arrow_box3:after, .arrow_box3:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .arrow_box3:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 20px;
+    margin-left: -20px;
+  }
+  .arrow_box3:before {
+    border-color: rgba(166, 171, 173, 0);
+    border-bottom-color: #a6abad;
+    border-width: 21px;
+    margin-left: -21px;
+  }
+
+  .arrow_box4 {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #a6abad;
+
+    height: 75px;
+    width:200px;
+    font-size: 50%; 
+    font-family: Verdana;
+    color: gray;
+    padding: 3px 3px 3px 3px; 
+    background-color: white;
+    /*border: 1px solid gray;*/
+
+    z-index: 2;
+
+  }
+  .arrow_box4:after, .arrow_box4:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .arrow_box4:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 20px;
+    margin-left: -20px;
+  }
+  .arrow_box4:before {
+    border-color: rgba(166, 171, 173, 0);
+    border-bottom-color: #a6abad;
+    border-width: 21px;
+    margin-left: -21px;
+  }
+
+/*  #captionbar{
+    width: 1200px;
+    height: 220px;
+    margin-right: auto;
+    margin-left: auto;
+  }*/
+
+  #gridmode_caption{
+    display: none;
+    position:absolute;
+    /*margin-left: 18px; dynamically adjust to offset */
+    margin-top: -25px;
+    height: 150px;
+    width: 200px;
+  }
+
+  #sketchmode_caption{
+    display: none;
+    position:absolute;
+    /*margin-left: 103px;*/
+    margin-top:-25px;
+    height: 200px;
+    width: 200px;
+  }  
+
+  #finetunemode_caption{
+    display: none;
+    position:absolute;
+    /*margin-left: 190px;*/
+    margin-top:-25px;
+    height: 50px;
+    width: 200px;
+  }
+
+  #pencil_caption{
+    display: none;
+    position:absolute;
+    /*margin-left: 768px;*/
+    margin-top:-25px;
+    height: 50px;
+    width: 200px;
+  }
+
+  #eraser_caption{
+    display: none;
+    position:absolute;
+    /*margin-left:853px;*/
+    margin-top:-25px;
+    height: 50px;
+    width: 200px;
+  }
+
+  #ghostmode_caption{
+    display: none;
+    position: absolute;
+    /*margin-left: 940px;*/
+    margin-top:-25px;
+    height: 75px;
+    width: 200px;
+  }
+
+	</style>
+
+</head>
+
+<body onLoad="init()">
+
+<!--     <div id="title" class="noselect"> <img src="typesketch_logo.svg" alt="typesketch" height="60px" vspace ="30px" hspace ="50px"> </div>  -->
+<div id="toolbar" onLoad="centerToolbar()">
+
+    <div id="gridmode" class="noselect"> <img id="gridmode_img" onclick="toggleGrid()" src="grid_mode_on.svg" alt="grid mode" height="40px" vspace ="45px" hspace ="20px"> </div>
+
+    <div id="sketchmode" class="noselect"> <img id="sketchmode_img" onclick="toggleSketch()" src="sketch_mode.svg" alt="sketch mode" height="40px" vspace ="45px" hspace ="20px"> </div>
+
+    <div id="refinemode" class="noselect"> <img id="refinemode_img" onmouseover="toggleRefine()" onmouseout="toggleRefine()" src="finetune_mode.svg" alt="finetune mode" height="40px" vspace ="45px" hspace ="20px"> </div>
+
+    <div id="title" class="noselect"> <img src="typesketch_logo.svg" alt="typesketch" height="60px" vspace ="30px" hspace ="72px"> </div> 
+
+    <div id="pencil" class="noselect" > <img id="pencil_img" onclick="togglePencil()" src="pencil_on.svg" alt="pencil" height="40px" vspace ="45px" hspace ="20px"> </div>
+
+    <div id="eraser" class="noselect"> <img id="eraser_img" onclick="toggleEraser()" src="eraser.svg" alt="eraser" height="40px" vspace ="45px" hspace ="20px"> </div>
+
+    <div id="ghostmode" class="noselect"> <img id="ghost_img" onclick="toggleGhost()" src="ghost_mode.svg" alt="ghost mode" height="40px" vspace ="45px" hspace ="20px"> </div>
+</div>
+
+<!-- <div id="captionbar"> -->
+  <div id="gridmode_caption">
+    <div class="arrow_box1">
+      <p class="caption_title">Grid Mode Features</p>
+      <p> Single Click Fill: Click to fill or unfill a unit on the grid. </p>
+      <p> Drag Fill: Hold the mouse down and drag to fill many units at once. </p>
+      <p> Double Click Line Creation: First double click specifies start, second double click specifies end.  Cancels line creation if start and end are same. </p>
+    </div>
+  </div>
+
+  <div id="sketchmode_caption"> 
+    <div class="arrow_box2">
+      <p class="caption_title">Sketch Mode Features</p>
+      <p> Single Click Ellipse Creation: Click three times to create an ellipse.  First click specifies center.  Distance between first click and second click specifies x-radius.  Distance between first click and third click specifies y-radius.  Three clicks at same position cancels ellipse. </p>
+      <p> Double Click Curve Creation: Double click four times to create a simple, bezier curve.  First and fourth clicks specify start and end.  Second and third clicks specify tangent lines.  Cancels curve creation if first and second click are same. </p>
+    </div>
+  </div>  
+
+  <div id="finetunemode_caption">
+    <div class="arrow_box3">
+      <p class="caption_title">Refine Mode Features<br> <br>  Under Construction!  :)  </p>
+    </div>
+  </div>
+
+  <div id="pencil_caption">
+    <div class="arrow_box3">
+      <p class="caption_title">Pencil<br> <br>  Sketch your letter!  </p>
+    </div>
+  </div>
+
+  <div id="eraser_caption"> 
+    <div class="arrow_box3">
+      <p class="caption_title">Eraser<br> <br>  Erase your mistakes!  </p>
+    </div>
+  </div>
+
+  <div id="ghostmode_caption">
+    <div class="arrow_box4">
+      <p class="caption_title">Ghost Mode</p>
+      <p> When Ghost Mode is selected, a "shadow" of the current tab will remain on the screen even when you change letter tabs. 
+      </p>
+    </div>
+  </div>
+
+<!-- </div> -->
+
+
+<div>
+
+  <div class="tab" id="tab1">
+	   <svg class="svg" id="svg1" width="1000" height="550" onLoad="onLoadSet('svg1')">
+	   </svg>
+  </div>
+
+  <div class="tab" id="tab2">
+     <svg class="svg" id="svg2" width="1000" height="550" onLoad="onLoadSet('svg2')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab3">
+     <svg class="svg" id="svg3" width="1000" height="550" onLoad="onLoadSet('svg3')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab4">
+     <svg class="svg" id="svg4" width="1000" height="550" onLoad="onLoadSet('svg4')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab5">
+    <svg class="svg" id="svg5" width="1000" height="550" onLoad="onLoadSet('svg5')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab6">
+     <svg class="svg" id="svg6" width="1000" height="550" onLoad="onLoadSet('svg6')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab7">
+     <svg class="svg" id="svg7" width="1000" height="550" onLoad="onLoadSet('svg7')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab8">
+      <svg class="svg" id="svg8" width="1000" height="550" onLoad="onLoadSet('svg8')">
+     </svg>
+   </div>
+
+  <div class="tab" id="tab9">
+     <svg class="svg" id="svg9" width="1000" height="550" onLoad="onLoadSet('svg9')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab10">
+     <svg class="svg" id="svg10" width="1000" height="550" onLoad="onLoadSet('svg10')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab11">
+     <svg class="svg" id="svg11" width="1000" height="550" onLoad="onLoadSet('svg11')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab12">
+     <svg class="svg" id="svg12" width="1000" height="550" onLoad="onLoadSet('svg12')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab13">
+     <svg class="svg" id="svg13" width="1000" height="550" onLoad="onLoadSet('svg13')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab14">
+     <svg class="svg" id="svg14" width="1000" height="550" onLoad="onLoadSet('svg14')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab15">
+     <svg class="svg" id="svg15" width="1000" height="550" onLoad="onLoadSet('svg15')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab16">
+     <svg class="svg" id="svg16" width="1000" height="550" onLoad="onLoadSet('svg16')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab17">
+     <svg class="svg" id="svg17" width="1000" height="550" onLoad="onLoadSet('svg17')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab18">
+     <svg class="svg" id="svg18" width="1000" height="550" onLoad="onLoadSet('svg18')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab19">
+     <svg class="svg" id="svg19" width="1000" height="550" onLoad="onLoadSet('svg19')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab20">
+     <svg class="svg" id="svg20" width="1000" height="550" onLoad="onLoadSet('svg20')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab21">
+     <svg class="svg" id="svg21" width="1000" height="550" onLoad="onLoadSet('svg21')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab22">
+     <svg class="svg" id="svg22" width="1000" height="550" onLoad="onLoadSet('svg22')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab23">
+    <svg class="svg" id="svg23" width="1000" height="550" onLoad="onLoadSet('svg23')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab24">
+     <svg class="svg" id="svg24" width="1000" height="550" onLoad="onLoadSet('svg24')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab25">
+     <svg class="svg" id="svg25" width="1000" height="550" onLoad="onLoadSet('svg25')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab26">
+     <svg class="svg" id="svg26" width="1000" height="550" onLoad="onLoadSet('svg26')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab27">
+     <svg class="svg" id="svg27" width="1000" height="550" onLoad="onLoadSet('svg27')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab28">
+     <svg class="svg" id="svg28" width="1000" height="550" onLoad="onLoadSet('svg28')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab29">
+     <svg class="svg" id="svg29" width="1000" height="550" onLoad="onLoadSet('svg29')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab30">
+     <svg class="svg" id="svg30" width="1000" height="550" onLoad="onLoadSet('svg30')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab31">
+     <svg class="svg" id="svg31" width="1000" height="550" onLoad="onLoadSet('svg31')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab32">
+    <svg class="svg" id="svg32" width="1000" height="550" onLoad="onLoadSet('svg32')">
+     </svg>
+   </div>
+
+  <div class="tab" id="tab33">
+    <svg class="svg" id="svg33" width="1000" height="550" onLoad="onLoadSet('svg33')">
+     </svg>
+   </div>
+
+  <div class="tab" id="tab34">
+     <svg class="svg" id="svg34" width="1000" height="550" onLoad="onLoadSet('svg34')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab35">
+     <svg class="svg" id="svg35" width="1000" height="550" onLoad="onLoadSet('svg35')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab36">
+     <svg class="svg" id="svg36" width="1000" height="550" onLoad="onLoadSet('svg36')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab37">
+     <svg class="svg" id="svg37" width="1000" height="550" onLoad="onLoadSet('svg37')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab38">
+     <svg class="svg" id="svg38" width="1000" height="550" onLoad="onLoadSet('svg38')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab39">
+     <svg class="svg" id="svg39" width="1000" height="550" onLoad="onLoadSet('svg39')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab40">
+     <svg class="svg" id="svg40" width="1000" height="550" onLoad="onLoadSet('svg40')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab41">
+     <svg class="svg" id="svg41" width="1000" height="550" onLoad="onLoadSet('svg41')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab42">
+     <svg class="svg" id="svg42" width="1000" height="550" onLoad="onLoadSet('svg42')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab43">
+     <svg class="svg" id="svg43" width="1000" height="550" onLoad="onLoadSet('svg43')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab44">
+     <svg class="svg" id="svg44" width="1000" height="550" onLoad="onLoadSet('svg44')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab45">
+     <svg class="svg" id="svg45" width="1000" height="550" onLoad="onLoadSet('svg45')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab46">
+     <svg class="svg" id="svg46" width="1000" height="550" onLoad="onLoadSet('svg46')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab47">
+     <svg class="svg" id="svg47" width="1000" height="550" onLoad="onLoadSet('svg47')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab48">
+     <svg class="svg" id="svg48" width="1000" height="550" onLoad="onLoadSet('svg48')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab49">
+     <svg class="svg" id="svg49" width="1000" height="550" onLoad="onLoadSet('svg49')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab50">
+     <svg class="svg" id="svg50" width="1000" height="550" onLoad="onLoadSet('svg50')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab51">
+     <svg class="svg" id="svg51" width="1000" height="550" onLoad="onLoadSet('svg51')">
+     </svg>
+  </div>
+
+  <div class="tab" id="tab52">
+     <svg class="svg" id="svg52" width="1000" height="550" onLoad="onLoadSet('svg52')">
+     </svg>
+  </div>
+
+</div>
+
+  <ul id="tabs" class="noselect">
+    <li><a href ="#tab1"> A </a></li>
+    <li><a href ="#tab2"> B </a></li>
+    <li><a href ="#tab3"> C </a></li>
+    <li><a href ="#tab4"> D </a></li>
+    <li><a href ="#tab5"> E </a></li>
+    <li><a href ="#tab6"> F </a></li>
+    <li><a href ="#tab7"> G </a></li>
+    <li><a href ="#tab8"> H </a></li>
+    <li><a href ="#tab9"> I </a></li>
+    <li><a href ="#tab10"> J </a></li>
+    <li><a href ="#tab11"> K </a></li>
+    <li><a href ="#tab12"> L </a></li>
+    <li><a href ="#tab13"> M </a></li>
+    <li><a href ="#tab14"> N </a></li>
+    <li><a href ="#tab15"> O </a></li>
+    <li><a href ="#tab16"> P </a></li>
+    <li><a href ="#tab17"> Q </a></li>
+    <li><a href ="#tab18"> R </a></li>
+    <li><a href ="#tab19"> S </a></li>
+    <li><a href ="#tab20"> T </a></li>
+    <li><a href ="#tab21"> U </a></li>
+    <li><a href ="#tab22"> V </a></li>
+    <li><a href ="#tab23"> W </a></li>
+    <li><a href ="#tab24"> X </a></li> 
+    <li><a href ="#tab25"> Y </a></li>
+    <li><a href ="#tab26"> Z </a></li> 
+    <li><a href ="#tab27"> a </a></li>
+    <li><a href ="#tab28"> b </a></li>
+    <li><a href ="#tab29"> c </a></li>
+    <li><a href ="#tab30"> d </a></li>
+    <li><a href ="#tab31"> e </a></li>
+    <li><a href ="#tab32"> f </a></li>
+    <li><a href ="#tab33"> g </a></li>
+    <li><a href ="#tab34"> h </a></li>
+    <li><a href ="#tab35"> i </a></li>
+    <li><a href ="#tab36"> j </a></li>
+    <li><a href ="#tab37"> k </a></li>
+    <li><a href ="#tab38"> l </a></li>
+    <li><a href ="#tab39"> m </a></li>
+    <li><a href ="#tab40"> n </a></li>
+    <li><a href ="#tab41"> o </a></li>
+    <li><a href ="#tab42"> p </a></li>
+    <li><a href ="#tab43"> q </a></li>
+    <li><a href ="#tab44"> r </a></li>
+    <li><a href ="#tab45"> s </a></li>
+    <li><a href ="#tab46"> t </a></li>
+    <li><a href ="#tab47"> u </a></li>
+    <li><a href ="#tab48"> v </a></li>
+    <li><a href ="#tab49"> w </a></li>
+    <li><a href ="#tab50"> x </a></li> 
+    <li><a href ="#tab51"> y </a></li>
+    <li><a href ="#tab52"> z </a></li>   
+  </ul>
+
+  <script type="text/javascript" src="myScript8.js"></script>
+
+</body>
+
+</html>
