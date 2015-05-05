@@ -166,6 +166,9 @@ function toggleEraser(){
 		//turn off pencil
 		document.getElementById("pencil_img").src = "pencil.svg";
 		pencil = false;
+		
+		//reset drag
+		drag = "False";
 	}
 }
 
