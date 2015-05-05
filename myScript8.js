@@ -215,7 +215,7 @@ var ghost_instr = document.getElementById("ghostmode");
 
 var grid_timeout;
 grid_instr.onmouseover = function(){
-	grid_timeout = window.setTimeout(grid_helper, 1500);
+	grid_timeout = window.setTimeout(grid_helper, 1000);
 }
 function grid_helper(){
 	document.getElementById("gridmode_caption").style.marginLeft = (offsetX -72)+ "px";
@@ -229,7 +229,7 @@ grid_instr.onmouseout = function(){
 
 var sketch_timeout;
 sketch_instr.onmouseover = function(){
-	sketch_timeout = window.setTimeout(sketch_helper, 1500);
+	sketch_timeout = window.setTimeout(sketch_helper, 1000);
 }
 function sketch_helper(){
 	document.getElementById("sketchmode_caption").style.marginLeft = (offsetX + 11) + "px";
@@ -243,7 +243,7 @@ sketch_instr.onmouseout = function(){
 
 var fine_timeout;
 fine_instr.onmouseover = function(){
-	fine_timeout = window.setTimeout(fine_helper, 1500);
+	fine_timeout = window.setTimeout(fine_helper, 1000);
 }
 function fine_helper(){
 	document.getElementById("finetunemode_caption").style.marginLeft = (offsetX + 85 + 11) + "px";
@@ -257,7 +257,7 @@ fine_instr.onmouseout = function(){
 
 var pencil_timeout;
 pencil_instr.onmouseover = function(){
-	pencil_timeout = window.setTimeout(pencil_helper, 1500);
+	pencil_timeout = window.setTimeout(pencil_helper, 1000);
 }
 function pencil_helper(){
 	document.getElementById("pencil_caption").style.marginLeft = (offsetX + 578 + 85 + 13) + "px";
@@ -271,7 +271,7 @@ pencil_instr.onmouseout = function(){
 
 var eraser_timeout;
 eraser_instr.onmouseover = function(){
-	eraser_timeout = window.setTimeout(eraser_helper, 1500);
+	eraser_timeout = window.setTimeout(eraser_helper, 1000);
 }
 function eraser_helper(){
 	document.getElementById("eraser_caption").style.marginLeft = (offsetX + 578 + 2*85 + 13) + "px";
@@ -285,7 +285,7 @@ eraser_instr.onmouseout = function(){
 
 var ghost_timeout;
 ghost_instr.onmouseover = function(){
-	ghost_timeout = window.setTimeout(ghost_helper, 1500);
+	ghost_timeout = window.setTimeout(ghost_helper, 1000);
 }
 function ghost_helper(){
 	document.getElementById("ghostmode_caption").style.marginLeft = (offsetX + 578 + 3*85 + 13) + "px";
