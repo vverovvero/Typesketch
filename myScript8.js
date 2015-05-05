@@ -141,6 +141,7 @@ function togglePencil(){
 	if(img.src.match("pencil_on")){
 		img.src = "pencil.svg";
 		pencil = false;
+		drag = "False";
 	} else {
 		img.src = "pencil_on.svg";
 		pencil = true;
@@ -148,6 +149,9 @@ function togglePencil(){
 		//turn off eraser
 		document.getElementById("eraser_img").src = "eraser.svg";
 		eraser = false;		
+
+		//reset drag eraser bug
+		dragEraseOn = false;
 	}
 }
 
@@ -159,6 +163,7 @@ function toggleEraser(){
 	if (img.src.match("eraser_on")){
 		img.src = "eraser.svg";
 		eraser = false;
+		dragEraseOn = false;
 	} else {
 		img.src = "eraser_on.svg";
 		eraser = true;
@@ -167,7 +172,7 @@ function toggleEraser(){
 		document.getElementById("pencil_img").src = "pencil.svg";
 		pencil = false;
 
-		//reset drag (to get around bug)
+		//reset drag pencil bug
 		drag = "False";
 	}
 }
