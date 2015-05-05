@@ -1,5 +1,5 @@
-# typesketch
-TypeSketch is a simple program for typography design.
+# Typesketch
+Typesketch is a simple program for typography design.
 
 There are three main modes:
 
@@ -11,8 +11,6 @@ There are three main modes:
 
 A special mode, ghostMode, allows for a shadow of the letter tab to be displayed.
 
-A bug that still exists is if the user drags to fill but releases the mouse on top of an object, the drag-to-fill function breaks.
-I am not sure how to fix this bug.
+A bug that still exists is if the user drags to fill but releases the mouse on top of an object, the drag-to-fill function breaks.  The same bug exists when the user drags the eraser over an object.  I have made temporary fixes to these bugs by resetting drag variables when the user clicks on the pencil or eraser icon.  
 
-TypeSketch is my first javascript project.  Please enjoy!
-Check it out here: http://vverovvero.github.io/Typesketch/
+Typesketch is my first javascript project.  Please enjoy!  Check it out here: http://vverovvero.github.io/Typesketch/
